@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gh-bg text-gh-text font-body;
+    background-color: #0d1117;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d1117;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00d9ff44;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d9ff88;
+  }
+
+  ::selection {
+    background-color: rgba(0, 217, 255, 0.25);
+    color: #00d9ff;
+  }
+}
+
+@layer components {
+  /* Scanline overlay effect */
+  .scanlines::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Neon text glow */
+  .neon-text {
+    color: #00d9ff;
+    text-shadow:
+      0 0 7px #00d9ff,
+      0 0 10px #00d9ff,
+      0 0 21px #00d9ff,
+      0 0 42px #0fa,
+      0 0 82px #0fa;
+  }
+
+  .neon-text-subtle {
+    color: #00d9ff;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.6), 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    color: #ff0080;
+    animation: glitch-1 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px);
+  }
+
+  .glitch::after {
+    color: #00d9ff;
+    animation: glitch-2 3s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translate(2px);
+  }
+
+  /* XP Bar / Progress bar */
+  .xp-bar {
+    @apply relative h-2 rounded-full overflow-hidden;
+    background: rgba(48, 54, 61, 0.8);
+  }
+
+  .xp-bar-fill {
+    @apply h-full rounded-full relative;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .xp-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: white;
+    border-radius: 2px;
+    opacity: 0.8;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Card styles */
+  .game-card {
+    @apply relative rounded-xl border border-gh-border overflow-hidden;
+    background: linear-gradient(135deg, rgba(22,27,34,0.95) 0%, rgba(13,17,23,0.98) 100%);
+    box-shadow: 0 0 0 1px rgba(48,54,61,0.8), 0 8px 32px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+  }
+
+  .game-card:hover {
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(0,217,255,0.3), 0 8px 32px rgba(0,217,255,0.08), 0 20px 60px rgba(0,0,0,0.5);
+    transform: translateY(-4px);
+  }
+
+  /* Grid background */
+  .grid-bg {
+    background-image: 
+      linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Section labels */
+  .section-label {
+    @apply font-mono text-xs tracking-widest uppercase;
+    color: #00d9ff;
+  }
+
+  /* Corner decorations */
+  .corner-tl::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #00d9ff;
+    border-left: 2px solid #00d9ff;
+    border-radius: 2px 0 0 0;
+  }
+
+  .corner-br::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #00d9ff;
+    border-right: 2px solid #00d9ff;
+    border-radius: 0 0 2px 0;
+  }
+
+  /* Terminal cursor */
+  .cursor::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+    color: #00d9ff;
+    margin-left: 2px;
+  }
+
+  /* Nav glow on active */
+  .nav-link-active {
+    color: #00d9ff;
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply relative font-display font-semibold text-sm tracking-widest uppercase px-8 py-3 rounded-lg overflow-hidden;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(0, 217, 255, 0.05));
+    border: 1px solid rgba(0, 217, 255, 0.5);
+    color: #00d9ff;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(88, 166, 255, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover::before {
+    opacity: 1;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.4), 0 0 40px rgba(0, 217, 255, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply relative font-display font-semibold text-sm tracking-widest uppercase px-8 py-3 rounded-lg;
+    background: transparent;
+    border: 1px solid rgba(48, 54, 61, 0.9);
+    color: #7d8590;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(125, 133, 144, 0.6);
+    color: #e6edf3;
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 88%, 100% { opacity: 0; }
+  90% { opacity: 0.8; transform: translate(-3px, 0); }
+  93% { opacity: 0; }
+  95% { opacity: 0.8; transform: translate(3px, 0); }
+  98% { opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%, 85%, 100% { opacity: 0; }
+  87% { opacity: 0.8; transform: translate(3px, 0); }
+  89% { opacity: 0; }
+  91% { opacity: 0.8; transform: translate(-3px, 0); }
+  94% { opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Particle canvas */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
