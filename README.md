@@ -14,13 +14,6 @@ npm install
 # Start development server
 npm run dev
 
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
 ---
 
 ## 🧱 Tech Stack
@@ -54,8 +47,6 @@ src/
 └── index.css               # Global styles, scanlines, neon effects
 ```
 
----
-
 ## ✨ Features
 
 - **Boot screen** with animated loading bar and system log
@@ -84,31 +75,6 @@ src/
 - **Work history**: `src/components/Experience.jsx` → `experiences` array
 - **Contact info**: `src/components/Contact.jsx` → `contactInfo` array
 
-### Connect Real Contact Form
-Replace the simulated submit in `Contact.jsx` with a real API call:
-```js
-// Example with EmailJS:
-await emailjs.send('SERVICE_ID', 'TEMPLATE_ID', form, 'PUBLIC_KEY');
-
-// Or with a custom backend:
-await fetch('/api/contact', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(form),
-});
-```
-
-### Deploy
-```bash
-# Vercel (recommended)
-npx vercel
-
-# Or build and deploy to any static host
-npm run build
-# Upload /dist folder
-```
-
----
 
 ## 🎨 Color Palette
 
@@ -123,6 +89,5 @@ npm run build
 | `gh-purple` | `#bc8cff` | Keywords, highlights |
 | `gh-orange` | `#ffa657` | Warnings, values |
 
----
 
 Made with ❤️ + ☕ + 🎮
