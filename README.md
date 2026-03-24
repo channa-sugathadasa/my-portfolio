@@ -1,4 +1,4 @@
-# 🎮 MERN Stack Portfolio — Game-Themed Dark UI
+# 🎮 MERN Stack Portfolio 
 
 A fully responsive, game-inspired developer portfolio built with **React + Vite + Tailwind CSS**.
 GitHub dark aesthetic meets cyberpunk game UI. Neon glows, matrix rain, terminal animations, XP bars, and more.
