@@ -23,7 +23,7 @@ function MatrixRain({ canvasRef }) {
     window.addEventListener('resize', resize);
 
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ<>{}[]()=/\\;:';
-    const fontSize = 12;
+    const fontSize = 30;
     let columns = Math.floor(canvas.width / fontSize);
     let drops = Array(columns).fill(1);
 
@@ -145,11 +145,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        {/* Status badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gh-green/40 bg-gh-green/5 mb-8">
-          <div className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />
-          <span className="font-mono text-xs text-gh-green tracking-widest">SYSTEM ONLINE — AVAILABLE FOR HIRE</span>
-        </div>
+
 
         {/* Name */}
         <div className="mb-4">
@@ -160,7 +156,7 @@ export default function Hero() {
             <span className="text-gh-orange"> {`{`}</span>
           </div>
           <h1
-            className="font-display font-black text-5xl sm:text-7xl md:text-7xl tracking-wider mb-2 glitch"
+            className="font-display font-black text-4xl sm:text-7xl md:text-7xl tracking-wider mb-2 glitch"
             data-text="CHANNA SUGATHADASA"
             style={{
               background: 'linear-gradient(135deg, #e6edf3 30%, #00d9ff 70%, #58a6ff 100%)',
@@ -187,7 +183,7 @@ export default function Hero() {
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {[
             { label: 'PROJECTS', value: '5+', color: 'gh-blue' },
-            { label: 'LEVEL', value: 'JUNIOR', color: 'gh-purple' },
+            { label: 'LEVEL', value: 'Associate Software Engineer', color: 'gh-purple' },
           ].map(stat => (
             <div key={stat.label}
               className="flex items-center gap-2 px-4 py-2 rounded border border-gh-border/60 bg-gh-surface/60 backdrop-blur-sm"
@@ -239,7 +235,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gh-muted hover:text-gh-cyan transition-colors group"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gh-muted hover:text-gh-cyan transition-colors group"
       >
         <span className="font-mono text-xs tracking-widest">SCROLL</span>
         <ChevronDown size={20} className="animate-bounce" />

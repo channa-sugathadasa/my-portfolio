@@ -9,13 +9,13 @@ const stats = [
 ];
 
 const terminalLines = [
-  { prefix: '~/channa', cmd: 'whoami', delay: 0 },
+  { prefix: '~/channa', cmd: 'who am i', delay: 0 },
   { output: 'Channa Sugathadasa — Junior MERN Stack Developer', delay: 400 },
-  { prefix: '~/channa', cmd: 'cat ./about.txt', delay: 800 },
+  { prefix: '~/channa', cmd: './about_me.txt', delay: 800 },
   { output: 'Web Application Development. Proficient in the MERN Stack and Java, with a portfolio', delay: 1200 },
   { output: 'of 5+ full-stack projects demonstrating skills in User Authentication, API Integration,', delay: 1400 },
   { output: 'and Cloud Deployment.', delay: 1600 },
-  { prefix: '~/channa', cmd: 'cat ./interests.json', delay: 2100 },
+  { prefix: '~/channa', cmd: './interests.json', delay: 2100 },
   { output: '{ "open_source": true, "coffee": "essential",', delay: 2500 },
   { output: '  "side_projects": "always", "learning": "forever" }', delay: 2700 },
   { prefix: '~/channa', cmd: '▊', delay: 3200, cursor: true },
@@ -53,7 +53,7 @@ function Terminal({ lines, visible }) {
             {line.prefix && (
               <div className="flex items-center gap-1">
                 <span className="text-gh-purple">{line.prefix}</span>
-                <span className="text-gh-muted">$</span>
+                <span className="text-gh-muted"> {'>'}</span>
                 <span className="text-gh-green ml-1">{line.cursor ? (
                   <span className="animate-cursor-blink">▊</span>
                 ) : line.cmd}</span>
@@ -121,10 +121,6 @@ export default function About() {
                   <div className="font-display font-bold text-gh-text">Channa Sugathadasa</div>
                   <div className="font-mono text-xs text-gh-muted">Full Stack Developer</div>
                 </div>
-                <div className="ml-auto flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />
-                  <span className="font-mono text-xs text-gh-green">LVL 37</span>
-                </div>
               </div>
               <p className="text-gh-text/80 font-body text-base leading-relaxed">
                 I'm a passionate Full Stack Developer specializing in the MERN stack, crafting 
@@ -151,10 +147,11 @@ export default function About() {
             {/* Quick info */}
             <div className="grid grid-cols-2 gap-3 font-mono text-sm">
               {[
-                { key: 'LOCATION', val: 'Bombuwala, Kalutara, Sri Lanka.' },
-                { key: 'TIMEZONE', val: 'PST (UTC-8)' },
+                { key: 'ADDRESS', val: 'Bombuwala, Kalutara, Sri Lanka.' },
+                { key: 'DEGREE', val: 'Bachelor of Information and Communication Technology (Honours)' },
                 { key: 'EXPERIENCE', val: '5+ Projects' },
-                { key: 'EDUCATION', val: 'BICT(Honse)' },
+                { key: 'UNIVERSITY', val: 'Rajarata University of Sri Lanka' },
+                { key: 'SCHOOL', val: 'CWW.Kannangara MMV, Mathugama' },
               ].map(({ key, val }) => (
                 <div key={key} className="flex flex-col gap-1">
                   <span className="text-xs text-gh-muted tracking-widest">{key}</span>

@@ -72,7 +72,6 @@ export default function Contact() {
               </h3>
               <p className="text-gh-muted font-body leading-relaxed">
                 Available for full-time roles, freelance projects, and technical consulting. 
-                Response time: under 24 hours. Let's talk.
               </p>
             </div>
 
@@ -111,18 +110,6 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-
-            {/* Availability */}
-            <div className="p-4 rounded-xl border border-gh-green/30 bg-gh-green/5">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />
-                <span className="font-mono text-sm text-gh-green font-semibold">AVAILABLE NOW</span>
-              </div>
-              <p className="font-body text-sm text-gh-muted">
-                Open to full-time, contract, and freelance opportunities. 
-                Can start within 2 weeks notice.
-              </p>
-            </div>
           </div>
 
           {/* Right: Contact Form */}
@@ -133,8 +120,7 @@ export default function Contact() {
                 <div className="w-3 h-3 rounded-full bg-gh-red/70" />
                 <div className="w-3 h-3 rounded-full bg-gh-orange/70" />
                 <div className="w-3 h-3 rounded-full bg-gh-green/70" />
-                <span className="ml-3 font-mono text-xs text-gh-muted">POST /api/contact — HTTP/1.1</span>
-                <div className="ml-auto font-mono text-xs text-gh-green">200 OK</div>
+                <span className="ml-3 font-mono text-xs text-gh-muted">POST /api/contact</span>
               </div>
 
               {status === 'sent' ? (
@@ -144,7 +130,7 @@ export default function Contact() {
                   </div>
                   <div className="font-display font-bold text-xl text-gh-text">MESSAGE SENT!</div>
                   <div className="font-mono text-sm text-gh-muted">
-                    <span className="text-gh-green">SUCCESS</span> — Response incoming within 24h
+                    <span className="text-gh-green">SUCCESS</span>
                   </div>
                 </div>
               ) : (
@@ -161,7 +147,7 @@ export default function Contact() {
                         value={form.name}
                         onChange={handleChange}
                         required
-                        placeholder='"Your Name"'
+                        placeholder=''
                         className="w-full bg-gh-bg border border-gh-border rounded-lg px-4 py-3 font-mono text-sm text-gh-text placeholder-gh-muted/40 focus:outline-none focus:border-gh-cyan/60 focus:ring-1 focus:ring-gh-cyan/20 transition-all"
                       />
                     </div>
@@ -176,7 +162,7 @@ export default function Contact() {
                         value={form.email}
                         onChange={handleChange}
                         required
-                        placeholder='"your@email.com"'
+                        placeholder=''
                         className="w-full bg-gh-bg border border-gh-border rounded-lg px-4 py-3 font-mono text-sm text-gh-text placeholder-gh-muted/40 focus:outline-none focus:border-gh-cyan/60 focus:ring-1 focus:ring-gh-cyan/20 transition-all"
                       />
                     </div>
@@ -193,7 +179,7 @@ export default function Contact() {
                       value={form.subject}
                       onChange={handleChange}
                       required
-                      placeholder='"Project Inquiry / Job Opportunity / ...'
+                      placeholder=''
                       className="w-full bg-gh-bg border border-gh-border rounded-lg px-4 py-3 font-mono text-sm text-gh-text placeholder-gh-muted/40 focus:outline-none focus:border-gh-cyan/60 focus:ring-1 focus:ring-gh-cyan/20 transition-all"
                     />
                   </div>
@@ -209,7 +195,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      placeholder='"Tell me about your project..."'
+                      placeholder=''
                       className="w-full bg-gh-bg border border-gh-border rounded-lg px-4 py-3 font-mono text-sm text-gh-text placeholder-gh-muted/40 focus:outline-none focus:border-gh-cyan/60 focus:ring-1 focus:ring-gh-cyan/20 transition-all resize-none"
                     />
                   </div>
@@ -232,10 +218,6 @@ export default function Contact() {
                       </>
                     )}
                   </button>
-
-                  <p className="text-center font-mono text-xs text-gh-muted">
-                    {`// `}Encrypted with TLS · No spam · Response within 24h
-                  </p>
                 </form>
               )}
             </div>

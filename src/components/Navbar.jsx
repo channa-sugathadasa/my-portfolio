@@ -68,7 +68,6 @@ export default function Navbar() {
               <span className="font-display font-bold text-sm text-gh-text leading-none tracking-wider">
                 DEV<span className="text-gh-cyan">.</span>CHANNA
               </span>
-              <span className="font-mono text-xs text-gh-muted leading-none">v2.0.25</span>
             </div>
           </button>
 
@@ -97,14 +96,6 @@ export default function Navbar() {
                 </button>
               );
             })}
-          </div>
-
-          {/* Status indicator */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded border border-gh-border/60 bg-gh-surface/50">
-              <div className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />
-              <span className="font-mono text-xs text-gh-muted">AVAILABLE</span>
-            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
