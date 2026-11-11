@@ -15,19 +15,19 @@ function LoadingScreen({ onComplete }) {
 
   const stages = [
     'INITIALIZING',
-    'LOADING MODULES',
-    'COMPILING ASSETS',
-    'CONNECTING TO DB',
-    'READY',
+    'MOUNTING REACT & NEXT CORE',
+    'COMPILING TYPESCRIPT SCHEMAS',
+    'CONNECTING VERIFIED PROFILE',
+    'SYSTEM READY',
   ];
 
   useEffect(() => {
     const steps = [
-      { prog: 20, stage: 1, delay: 300 },
-      { prog: 45, stage: 2, delay: 700 },
-      { prog: 70, stage: 3, delay: 1100 },
-      { prog: 90, stage: 4, delay: 1500 },
-      { prog: 100, stage: 4, delay: 1900 },
+      { prog: 20, stage: 1, delay: 200 },
+      { prog: 45, stage: 2, delay: 500 },
+      { prog: 75, stage: 3, delay: 900 },
+      { prog: 90, stage: 4, delay: 1300 },
+      { prog: 100, stage: 4, delay: 1600 },
     ];
 
     const timers = steps.map(({ prog, stage, delay }) =>
@@ -37,7 +37,7 @@ function LoadingScreen({ onComplete }) {
       }, delay)
     );
 
-    const done = setTimeout(onComplete, 2400);
+    const done = setTimeout(onComplete, 1900);
     return () => { timers.forEach(clearTimeout); clearTimeout(done); };
   }, [onComplete]);
 
@@ -45,17 +45,19 @@ function LoadingScreen({ onComplete }) {
     <div className="fixed inset-0 z-[9999] bg-gh-bg flex flex-col items-center justify-center">
       <div className="w-full max-w-sm px-8">
         {/* Logo */}
-        <div className="text-center mb-12">
-          <div className="font-display font-black text-4xl tracking-widest mb-2"
+        <div className="text-center mb-10">
+          <div className="font-display font-black text-3xl sm:text-4xl tracking-widest mb-2"
             style={{
               background: 'linear-gradient(135deg, #e6edf3, #00d9ff)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
           >
-            DEV.Channa
+            CHANNA.DEV
           </div>
-          <div className="font-mono text-xs text-gh-muted tracking-widest">CHANNA's PORTFOLIO SYSTEM v2.0</div>
+          <div className="font-mono text-xs text-gh-muted tracking-widest">
+            PORTFOLIO &amp; SYSTEMS ARCHITECTURE
+          </div>
         </div>
 
         {/* Progress */}
@@ -66,7 +68,7 @@ function LoadingScreen({ onComplete }) {
           </div>
           <div className="h-1 bg-gh-surface rounded-full overflow-hidden border border-gh-border/40">
             <div
-              className="h-full bg-gh-cyan rounded-full transition-all duration-500"
+              className="h-full bg-gh-cyan rounded-full transition-all duration-300"
               style={{
                 width: `${progress}%`,
                 boxShadow: '0 0 10px #00d9ff, 0 0 20px #00d9ff44',
@@ -80,11 +82,11 @@ function LoadingScreen({ onComplete }) {
         </div>
 
         {/* Boot log */}
-        <div className="mt-8 font-mono text-xs text-gh-muted/40 space-y-1">
-          {progress >= 20 && <div><span className="text-gh-green">[OK]</span> React 18.1 mounted</div>}
-          {progress >= 45 && <div><span className="text-gh-green">[OK]</span> Tailwind CSS loaded</div>}
-          {progress >= 70 && <div><span className="text-gh-green">[OK]</span> Components compiled</div>}
-          {progress >= 90 && <div><span className="text-gh-green">[OK]</span> Database connected</div>}
+        <div className="mt-8 font-mono text-xs text-gh-muted/50 space-y-1">
+          {progress >= 20 && <div><span className="text-gh-green">[OK]</span> React &amp; TypeScript mounted</div>}
+          {progress >= 45 && <div><span className="text-gh-green">[OK]</span> Tailwind CSS &amp; Radix UI loaded</div>}
+          {progress >= 75 && <div><span className="text-gh-green">[OK]</span> RAJIDA Holdings systems indexed</div>}
+          {progress >= 90 && <div><span className="text-gh-green">[OK]</span> Profile &amp; Zod schemas verified</div>}
         </div>
       </div>
     </div>

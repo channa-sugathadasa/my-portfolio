@@ -1,87 +1,99 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Briefcase, Award, ChevronRight } from 'lucide-react';
+import { Briefcase, Award, GraduationCap, ChevronRight, CheckCircle2, Calendar, MapPin, Building2, ExternalLink } from 'lucide-react';
 
-const experiences = [
+const workExperience = [
   {
     id: 1,
-    role: 'Senior Full Stack Engineer',
-    company: 'TechVault Inc.',
-    type: 'Full-time',
-    period: '2022 — Present',
-    location: 'San Francisco, CA',
+    role: 'Web Developer Intern',
+    company: 'RAJIDA Holdings (Pvt) Ltd.',
+    type: 'Professional Internship',
+    period: 'April 2026 – October 2026',
+    duration: '6 Months',
+    location: 'Sri Lanka (Hybrid / Corporate)',
     color: '#00d9ff',
-    level: 'SR-III',
-    achievements: [
-      'Led architecture of microservices platform serving 2M+ daily active users',
-      'Reduced API response time by 65% via Redis caching and query optimization',
-      'Mentored 6 junior engineers, establishing best practices and code review standards',
-      'Built real-time notification system processing 500K events/day with Socket.io',
+    badge: 'INTERNSHIP',
+    summary: 'Spearheaded frontend and full-stack development of production-grade corporate and institutional platforms, serving cooperative financial institutions, automotive valuation companies, and enterprise IT consultancies.',
+    deliverables: [
+      'Developed and deployed production-grade corporate and institutional websites across cooperative banking, vehicle valuation, and IT consulting sectors.',
+      'Engineered reusable UI components, mobile-first responsive layouts, schema-based form validations (Zod, React Hook Form), and accessible design patterns.',
+      'Implemented technical SEO best practices and Schema.org structured data to enhance search indexing and page performance.',
+      'Collaborated closely with cross-functional stakeholders to translate strict institutional workflows into intuitive, high-performance web interfaces.',
     ],
-    stack: ['React', 'Node.js', 'MongoDB', 'Redis', 'AWS', 'Docker'],
-  },
-  {
-    id: 2,
-    role: 'Full Stack Developer',
-    company: 'Axiom Digital',
-    type: 'Full-time',
-    period: '2020 — 2022',
-    location: 'Remote',
-    color: '#58a6ff',
-    level: 'MID-II',
-    achievements: [
-      'Developed 12+ client-facing React applications with >90% Lighthouse scores',
-      'Designed RESTful API architecture handling 100K+ requests per day',
-      'Integrated third-party services: Stripe, Twilio, SendGrid, and Cloudinary',
-      'Shipped CI/CD pipeline using GitHub Actions reducing deploy time by 70%',
+    sectors: [
+      { name: 'Cooperative Banking', desc: 'SANASA Societies & Rural Banks' },
+      { name: 'Vehicle Valuation', desc: 'Enterprise Field-Investigation Portals' },
+      { name: 'IT Consulting', desc: 'Corporate Transformation Platforms' },
     ],
-    stack: ['React', 'Express', 'PostgreSQL', 'Stripe', 'GitHub Actions'],
+    stack: [
+      'React 19',
+      'Next.js 15',
+      'TypeScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Radix UI',
+      'Zod',
+      'React Hook Form',
+      'Node.js',
+      'Express',
+      'Schema.org',
+    ],
   },
+];
+
+const educationList = [
   {
-    id: 3,
-    role: 'Junior Web Developer',
-    company: 'CodeCraft Studios',
-    type: 'Full-time',
-    period: '2019 — 2020',
-    location: 'New York, NY',
+    degree: 'Bachelor of Information and Communication Technology (BICT Hons)',
+    major: 'Software Engineering Major',
+    institution: 'Rajarata University of Sri Lanka',
+    timeline: '2022 – 2026',
+    status: 'Undergraduate',
     color: '#bc8cff',
-    level: 'JR-I',
-    achievements: [
-      'Built and maintained 20+ WordPress and React-based client websites',
-      'Implemented SEO optimizations resulting in 40% organic traffic increase',
-      'Collaborated in agile sprints with designers and backend engineers',
-      'Created reusable component library used across 8 company projects',
+    icon: '🎓',
+    highlights: [
+      'Specialized in Software Engineering, Object-Oriented Design, Distributed Systems, and Modern Web Architectures.',
+      'Active contributor to student technological societies and university media production.',
     ],
-    stack: ['React', 'JavaScript', 'CSS3', 'WordPress', 'PHP'],
   },
   {
-    id: 4,
-    role: 'Freelance Developer',
-    company: 'Self-Employed',
-    type: 'Freelance',
-    period: '2017 — 2019',
-    location: 'Remote',
-    color: '#39d353',
-    level: 'SOLO',
-    achievements: [
-      'Delivered 30+ projects for small businesses and startups globally',
-      'Specialized in MERN stack e-commerce and SaaS product builds',
-      'Maintained 5-star rating across Upwork and Toptal platforms',
-      'Grew monthly recurring revenue to $8K through retainer clients',
+    degree: 'G.C.E. Advanced Level',
+    major: 'Engineering Technology Stream',
+    institution: 'C. W. W. Kannangara Central College',
+    timeline: '2020',
+    status: 'Completed',
+    color: '#58a6ff',
+    icon: '🏛️',
+    highlights: [
+      'Focused on Engineering Technology, Science for Technology, and Information Technology.',
     ],
-    stack: ['MERN Stack', 'jQuery', 'PHP', 'MySQL', 'Shopify'],
   },
 ];
 
 const certifications = [
-  { title: 'AWS Certified Developer – Associate', issuer: 'Amazon Web Services', year: '2023', icon: '☁️', color: '#ffa657' },
-  { title: 'MongoDB Certified Developer', issuer: 'MongoDB University', year: '2022', icon: '🍃', color: '#39d353' },
-  { title: 'Professional Scrum Master I', issuer: 'Scrum.org', year: '2021', icon: '⚡', color: '#58a6ff' },
-  { title: 'Meta Front-End Developer', issuer: 'Meta / Coursera', year: '2020', icon: '⚛️', color: '#00d9ff' },
+  {
+    title: 'Introduction to DevOps Tools, CI/CD for Beginners, Cloud Computing',
+    issuer: 'Simplilearn',
+    category: 'DevOps & Cloud',
+    icon: '☁️',
+    color: '#ffa657',
+  },
+  {
+    title: 'Figma UI/UX Design',
+    issuer: 'DP Education IT Campus',
+    category: 'Design & Prototyping',
+    icon: '🎨',
+    color: '#00d9ff',
+  },
+  {
+    title: 'Java Programming & Software Development',
+    issuer: 'L.A.V.T.C',
+    category: 'Software Engineering',
+    icon: '☕',
+    color: '#39d353',
+  },
 ];
 
 export default function Experience() {
   const [visible, setVisible] = useState(false);
-  const [expanded, setExpanded] = useState(1);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -101,150 +113,184 @@ export default function Experience() {
           <div className="section-label">04</div>
           <div className="h-px flex-1 bg-gh-border max-w-16" />
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-gh-text tracking-widest">
-            EXP<span className="text-gh-cyan">.</span>HISTORY
+            EXPERIENCE<span className="text-gh-cyan">.</span>CAREER
           </h2>
           <div className="h-px flex-1 bg-gradient-to-r from-gh-border to-transparent" />
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Timeline */}
-          <div className="lg:col-span-2 space-y-4">
-            {experiences.map((exp, index) => {
-              const isOpen = expanded === exp.id;
-              return (
-                <div
-                  key={exp.id}
-                  className={`relative transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  {/* Timeline connector */}
-                  {index < experiences.length - 1 && (
-                    <div className="absolute left-8 top-full w-px h-4 bg-gh-border z-10" />
-                  )}
-
-                  <button
-                    className={`w-full text-left game-card transition-all duration-300 ${isOpen ? 'ring-1' : ''}`}
-                    style={isOpen ? { ringColor: `${exp.color}40`, borderColor: `${exp.color}30` } : {}}
-                    onClick={() => setExpanded(isOpen ? null : exp.id)}
-                  >
-                    <div className="p-5">
-                      <div className="flex items-start gap-4">
-                        {/* Color dot with level */}
-                        <div className="flex-shrink-0 flex flex-col items-center gap-1 pt-1">
-                          <div
-                            className="w-10 h-10 rounded-xl flex items-center justify-center border font-display font-bold text-xs"
-                            style={{
-                              borderColor: `${exp.color}50`,
-                              background: `${exp.color}10`,
-                              color: exp.color,
-                            }}
-                          >
-                            {exp.level.split('-')[0]}
-                          </div>
-                        </div>
-
-                        <div className="flex-1 min-w-0">
-                          <div className="flex flex-wrap items-start justify-between gap-2">
-                            <div>
-                              <div className="font-display font-bold text-gh-text">{exp.role}</div>
-                              <div className="flex items-center gap-2 mt-1">
-                                <span className="font-mono text-sm" style={{ color: exp.color }}>{exp.company}</span>
-                                <span className="w-1 h-1 rounded-full bg-gh-border" />
-                                <span className="font-mono text-xs text-gh-muted">{exp.type}</span>
-                              </div>
-                            </div>
-                            <div className="text-right flex-shrink-0">
-                              <div className="font-mono text-xs text-gh-muted">{exp.period}</div>
-                              <div className="font-mono text-xs text-gh-muted/60 mt-0.5">{exp.location}</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <ChevronRight
-                          size={16}
-                          className="text-gh-muted flex-shrink-0 transition-transform duration-300"
-                          style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0)' }}
-                        />
-                      </div>
-
-                      {/* Expanded content */}
-                      <div
-                        className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-96 mt-5' : 'max-h-0'}`}
-                      >
-                        <div className="pl-14 space-y-4">
-                          <ul className="space-y-2">
-                            {exp.achievements.map((a, i) => (
-                              <li key={i} className="flex items-start gap-2 text-sm text-gh-text/80 font-body">
-                                <ChevronRight size={12} className="mt-1 flex-shrink-0" style={{ color: exp.color }} />
-                                {a}
-                              </li>
-                            ))}
-                          </ul>
-                          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gh-border/50">
-                            {exp.stack.map(s => (
-                              <span key={s} className="px-2 py-0.5 rounded font-mono text-xs border border-gh-border/60 bg-gh-surface/60"
-                                style={{ color: exp.color }}>
-                                {s}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Right: Certifications */}
-          <div className={`transition-all duration-700 delay-500 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="flex items-center gap-2 mb-6">
-              <Award size={16} className="text-gh-cyan" />
-              <span className="section-label">CERTIFICATIONS</span>
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left: Professional Work Experience (7 cols) */}
+          <div className={`lg:col-span-7 space-y-6 transition-all duration-700 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            <div className="flex items-center gap-2 mb-2">
+              <Briefcase size={18} className="text-gh-cyan" />
+              <span className="section-label">PROFESSIONAL WORK EXPERIENCE</span>
             </div>
-            <div className="space-y-3">
-              {certifications.map(cert => (
-                <div key={cert.title} className="game-card p-4 group">
-                  <div className="flex items-start gap-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xl border flex-shrink-0"
-                      style={{
-                        borderColor: `${cert.color}30`,
-                        background: `${cert.color}10`,
-                      }}
-                    >
-                      {cert.icon}
+
+            {workExperience.map((exp) => (
+              <div
+                key={exp.id}
+                className="game-card p-6 sm:p-8 relative group border-gh-cyan/30"
+              >
+                {/* Accent line */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-0.5 rounded-t-xl"
+                  style={{ background: 'linear-gradient(90deg, #00d9ff, #58a6ff)' }}
+                />
+
+                {/* Company & Role Header */}
+                <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-12 h-12 rounded-xl border border-gh-cyan/40 bg-gh-cyan/10 flex items-center justify-center text-gh-cyan flex-shrink-0 mt-0.5">
+                      <Building2 size={24} />
                     </div>
-                    <div className="min-w-0">
-                      <div className="font-body font-semibold text-sm text-gh-text group-hover:text-white transition-colors leading-snug">
-                        {cert.title}
+                    <div>
+                      <h3 className="font-display font-bold text-xl sm:text-2xl text-gh-text">
+                        {exp.role}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2 mt-1 font-mono text-sm">
+                        <span className="text-gh-cyan font-semibold">{exp.company}</span>
+                        <span className="text-gh-muted">•</span>
+                        <span className="text-gh-muted text-xs">{exp.type}</span>
                       </div>
-                      <div className="font-mono text-xs text-gh-muted mt-1">{cert.issuer}</div>
-                      <div className="font-mono text-xs mt-1" style={{ color: cert.color }}>{cert.year}</div>
+                    </div>
+                  </div>
+
+                  <div className="text-right">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-gh-cyan/40 bg-gh-cyan/10 font-mono text-xs text-gh-cyan font-bold">
+                      <Calendar size={12} />
+                      <span>{exp.period}</span>
+                    </div>
+                    <div className="font-mono text-xs text-gh-muted mt-1">
+                      {exp.duration} • {exp.location}
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
 
+                {/* Summary */}
+                <p className="font-body text-base text-gh-text/85 leading-relaxed mb-6">
+                  {exp.summary}
+                </p>
+
+                {/* Key Deliverables */}
+                <div className="mb-6">
+                  <h4 className="font-mono text-xs uppercase tracking-wider text-gh-muted mb-3">
+                    KEY DELIVERABLES &amp; IMPACT
+                  </h4>
+                  <div className="space-y-2.5">
+                    {exp.deliverables.map((item, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-sm font-body text-gh-text/90">
+                        <CheckCircle2 size={16} className="text-gh-cyan mt-0.5 flex-shrink-0" />
+                        <span className="leading-snug">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sectors Served */}
+                <div className="mb-6 p-4 rounded-xl border border-gh-border/70 bg-gh-surface/50">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-gh-muted block mb-2.5">
+                    Production Domains Engineered During Internship
+                  </span>
+                  <div className="grid sm:grid-cols-3 gap-2.5">
+                    {exp.sectors.map(sector => (
+                      <div key={sector.name} className="p-2.5 rounded-lg border border-gh-border/60 bg-gh-surface text-center">
+                        <div className="font-display font-semibold text-xs text-gh-text">{sector.name}</div>
+                        <div className="font-mono text-[10px] text-gh-muted mt-0.5">{sector.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-wider text-gh-muted mb-2.5">
+                    TECHNOLOGY STACK
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.stack.map(tech => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded text-xs font-mono border border-gh-border/70 bg-gh-surface text-gh-text/90"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right: Education & Certifications (5 cols) */}
+          <div className={`lg:col-span-5 space-y-8 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             {/* Education */}
-            <div className="mt-8">
+            <div>
               <div className="flex items-center gap-2 mb-4">
-                <Briefcase size={16} className="text-gh-cyan" />
+                <GraduationCap size={18} className="text-gh-purple" />
                 <span className="section-label">EDUCATION</span>
               </div>
-              <div className="game-card p-5">
-                <div className="font-display font-bold text-gh-text">Bachelor of Information and Communication Technology Honours</div>
-                <div className="font-mono text-sm text-gh-cyan mt-1">Rajarata University of Sri Lanka</div>
-                <div className="font-mono text-xs text-gh-muted mt-1"></div>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {['Software Developer', 'Software Engineer'].map(s => (
-                    <span key={s} className="px-2 py-0.5 rounded font-mono text-xs bg-gh-surface border border-gh-border text-gh-muted">
-                      {s}
-                    </span>
-                  ))}
-                </div>
+              <div className="space-y-4">
+                {educationList.map(edu => (
+                  <div key={edu.degree} className="game-card p-5 group hover:border-gh-purple/40 transition-all">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{edu.icon}</span>
+                        <span className="font-mono text-xs px-2 py-0.5 rounded bg-gh-purple/10 text-gh-purple border border-gh-purple/30">
+                          {edu.status}
+                        </span>
+                      </div>
+                      <span className="font-mono text-xs text-gh-muted">{edu.timeline}</span>
+                    </div>
+
+                    <h4 className="font-display font-bold text-base text-gh-text group-hover:text-white transition-colors">
+                      {edu.degree}
+                    </h4>
+                    <div className="font-mono text-xs text-gh-cyan mt-0.5">{edu.major}</div>
+                    <div className="font-body text-xs text-gh-muted mt-1">{edu.institution}</div>
+
+                    <div className="mt-3 pt-3 border-t border-gh-border/50 space-y-1">
+                      {edu.highlights.map((h, i) => (
+                        <p key={i} className="font-body text-xs text-gh-text/75 leading-relaxed">
+                          • {h}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Award size={18} className="text-gh-orange" />
+                <span className="section-label">VERIFIED CERTIFICATIONS</span>
+              </div>
+              <div className="space-y-3">
+                {certifications.map(cert => (
+                  <div key={cert.title} className="game-card p-4 group hover:border-gh-orange/40 transition-all">
+                    <div className="flex items-start gap-3">
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center text-lg border flex-shrink-0"
+                        style={{
+                          borderColor: `${cert.color}40`,
+                          background: `${cert.color}10`,
+                        }}
+                      >
+                        {cert.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-mono text-[10px] uppercase tracking-wider" style={{ color: cert.color }}>
+                          {cert.category}
+                        </div>
+                        <h4 className="font-body font-semibold text-sm text-gh-text group-hover:text-white transition-colors leading-snug mt-0.5">
+                          {cert.title}
+                        </h4>
+                        <div className="font-mono text-xs text-gh-muted mt-1">{cert.issuer}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

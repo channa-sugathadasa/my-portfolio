@@ -1,7 +1,19 @@
-# 🎮 MERN Stack Portfolio 
+# 🌐 Channa Sugathadasa — Personal Developer Portfolio
 
-A fully responsive, game-inspired developer portfolio built with **React + Vite + Tailwind CSS**.
-GitHub dark aesthetic meets cyberpunk game UI. Neon glows, matrix rain, terminal animations, XP bars, and more.
+Modern, high-performance developer portfolio website for **Channa Sugathadasa** — Web Developer specializing in **React, Next.js, TypeScript**, and modern styling solutions.
+
+---
+
+## 👨‍💻 Profile Overview
+- **Name:** Channa Sugathadasa
+- **Role:** Web Developer | React & Next.js | TypeScript
+- **Location:** Kalutara, Sri Lanka
+- **Experience:** Web Developer Intern at **RAJIDA Holdings (Pvt) Ltd.** (April 2026 – October 2026)
+- **Education:** BICT (Hons) in Software Engineering, Rajarata University of Sri Lanka (2022–2026)
+- **Email:** channavimukthi21871@gmail.com
+- **Phone:** +94 78 238 0090
+- **LinkedIn:** [channa-sugathadasa](https://linkedin.com/in/channa-sugathadasa)
+- **GitHub:** [channa-sugathadasa](https://github.com/channa-sugathadasa)
 
 ---
 
@@ -11,83 +23,58 @@ GitHub dark aesthetic meets cyberpunk game UI. Neon glows, matrix rain, terminal
 # Install dependencies
 npm install
 
-# Start development server
+# Start local development server
 npm run dev
 
----
+# Build for production
+npm run build
 
-## 🧱 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18, Vite 4 |
-| Styling | Tailwind CSS 3, Custom CSS |
-| Icons | Lucide React |
-| Fonts | Orbitron, Share Tech Mono, Rajdhani |
-| Animations | Pure CSS / JS |
-
----
-
-## 🗂 Project Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.jsx          # HUD-style navigation with active section tracking
-│   ├── Hero.jsx            # Matrix rain canvas + typewriter hero
-│   ├── About.jsx           # Terminal-animated bio + stats
-│   ├── ContributionGraph.jsx  # GitHub-style contribution heatmap
-│   ├── Skills.jsx          # XP bar skill tree with category tabs
-│   ├── Projects.jsx        # Game-card project showcase with filters
-│   ├── Experience.jsx      # Timeline with expandable job cards
-│   ├── Contact.jsx         # API-styled contact form + info
-│   └── Footer.jsx          # Minimal footer
-├── App.jsx                 # Loading screen, scroll progress, layout
-├── main.jsx                # Entry point
-└── index.css               # Global styles, scanlines, neon effects
+# Preview production build
+npm run preview
 ```
 
-## ✨ Features
+---
 
-- **Boot screen** with animated loading bar and system log
-- **Matrix rain canvas** in hero background
-- **Typewriter effect** cycling through developer roles
-- **GitHub-style contribution graph** with hover tooltips
-- **Skill XP bars** with animated fills by category
-- **Project cards** with rarity system (Legendary/Epic/Rare)
-- **Expandable timeline** for work experience
-- **Terminal-styled contact form** with submit simulation
-- **Scroll progress bar** with neon gradient
-- **Active section tracking** in navbar
-- **Fully responsive** — mobile, tablet, desktop
-- **Scanline overlay** for authentic CRT feel
-- **Corner bracket decorations** on cards
+## 🧱 Technical Stack
+
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend Frameworks** | React 19 / 18, Next.js (App Router, SSG, SSR), Vite |
+| **Languages** | TypeScript, JavaScript (ES6+), HTML5, CSS3, Java, Python |
+| **UI Libraries & Styling** | Tailwind CSS (v3 / v4 Alpha), Framer Motion, Radix UI, Shadcn/UI |
+| **Form Validation** | Zod, React Hook Form |
+| **Backend & APIs** | Node.js, Express.js, REST APIs, JWT Authentication |
+| **Databases** | MongoDB, MySQL |
+| **DevOps & Tooling** | GitHub Actions, Postman, Figma UI/UX, Jira, Trello, ClickUp |
+| **SEO & Standards** | Schema.org JSON-LD Structured Data, Technical SEO, Core Web Vitals |
 
 ---
 
-## 🎨 Customization
+## 🗂 Featured Projects
 
-### Update Your Info
-- **Name & role**: `src/components/Hero.jsx`
-- **Bio & stats**: `src/components/About.jsx`
-- **Skill levels**: `src/components/Skills.jsx` → `skillCategories` array
-- **Projects**: `src/components/Projects.jsx` → `projects` array
-- **Work history**: `src/components/Experience.jsx` → `experiences` array
-- **Contact info**: `src/components/Contact.jsx` → `contactInfo` array
+### Category A: Production & Client Systems (Internship)
+1. **Rajida Holdings — Corporate Website** (React 19, Vite, TypeScript, Node.js, Express, Tailwind CSS 4, Framer Motion, Radix UI)
+2. **Horagasmulla SANASA Website** (Next.js App Router, TypeScript, Tailwind CSS, SSG)
+3. **DigiValuer — Digital Vehicle Valuation Platform** (Next.js, TypeScript, Tailwind CSS, Framer Motion, React Hook Form, Zod)
+4. **DiproIT — Corporate Consultancy Website** (Next.js 15, React 19, TypeScript, Tailwind CSS 4, Framer Motion, React Hook Form, Zod, Schema.org)
 
+### Category B: Full-Stack & AI Applications
+1. **Natural Food Ordering System** (MongoDB, Express.js, React, Node.js, REST APIs)
+2. **Vehicle Service Centre Management System** (MERN Stack, Tailwind CSS, JWT Authentication, REST APIs)
+3. **Nexa-AI — Conversational Assistant** (React, Vite, Node.js, Google Gemini API, CSS)
 
-## 🎨 Color Palette
+---
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `gh-bg` | `#0d1117` | Main background |
-| `gh-surface` | `#161b22` | Cards, panels |
-| `gh-border` | `#30363d` | Borders |
-| `gh-cyan` | `#00d9ff` | Primary accent, neon |
-| `gh-blue` | `#58a6ff` | Secondary accent |
-| `gh-green` | `#39d353` | Success, contribution |
-| `gh-purple` | `#bc8cff` | Keywords, highlights |
-| `gh-orange` | `#ffa657` | Warnings, values |
+## 🎨 UI/UX Features
+- **Modern Minimal Dark Tech Aesthetic** with responsive typography and WCAG-compliant contrast ratios.
+- **Matrix Rain Canvas & Terminal Simulation** in hero and about sections.
+- **Categorized Project Filter Pills** with separate tabs for Production Systems and Full-Stack & AI Applications.
+- **Interactive Tech Skill Explorer** with domain tabs and proficiency indicators.
+- **Verified Work Experience Timeline** detailing deliverables at RAJIDA Holdings (Pvt) Ltd.
+- **Education, Verified Certifications & Leadership Sections**.
+- **Interactive Contact Section** with copy-to-clipboard for email/phone and type-safe simulated form transmission.
+- **Rich Schema.org JSON-LD Structured Data** for optimal search engine indexing.
 
+---
 
-Made with ❤️ + ☕ + 🎮
+© Channa Sugathadasa. All rights reserved.
